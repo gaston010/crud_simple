@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1 class="text-center"> Lista de Proveedores </h1>
+        <table class="table table-dark">
+            <thead>
+                <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Acciones</th>
+                    </tr>
+                </tbody>
+            </thead>
+            <tbody>
+                {% for proveedor in provedor %}
+                    <tr>
+                        <td>{{ proveedor.id }}</td>
+                        <td>{{ proveedor.nombre }}</td>
+                        <td>{{ proveedor.apellido }}</td>
+                        <td>{{ proveedor.dni }}</td>
+                        <td>
+                            <a href="{{ '/update_prov' }}/{{ proveedor.id }}/" class="btn btn-light">Actualizar</a>
+                            <a href="{{ '/delete_prov' }}/{{ proveedor.id }}/" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+        </table>
+
+    <a href="/productos/">Lista de Productos</a>
+    <a href="/create_prov/">Cargar Proveedor</a>
+    <a href="/">Inicio</a>
+{% endblock  %}

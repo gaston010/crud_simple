@@ -1,0 +1,32 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+    <div class="container">
+
+        <h1>Actualizar un Producto</h1>
+
+        <form action="" method="post" class="my-4">
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+            <div class="form-group mb-2 col col-lg-6">
+
+                <p>Nombre: <input type="text" name="nombre" value="{{ producto.nombre }}" class="form-control"></p>
+                <p>Precio: <input type="float" name="precio" value="{{ producto.precio }}" class="form-control"></p>
+                <p>Stock: <input type="int" name="stock" value="{{ producto.stock_actual }}" class="form-control"></p>
+                <p>Proveedor: <input type="text" name="proveedor" value="{{ producto.proveedor }}" class="form-control"></p>
+
+                <input type="submit" value="Actualizar" class="btn btn-success">
+
+            </div>
+        </form>
+
+        <br>
+
+        <a href="{{ '/productos/' }}">Volver al listado</a>
+
+    </div>
+
+
+{% endblock %}

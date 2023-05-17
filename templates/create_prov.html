@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+ <h1>Carga de Proveedor</h1>
+
+ <form action='' method='post' class="my-4">
+  <input type='hidden' name='csrfmiddlewaretoken'value="{{ csrf_token }}">
+    <div class="form-group">
+    {{ form }}
+    </div>
+
+    <button type ='submit' class="btn btn-primary" >Cargar</button>
+    <a href="{{ '/provedores/' }}" class="btn btn-secondary text-decoration-none">Atras</>
+ 
+ </form>
+{% endblock  %}

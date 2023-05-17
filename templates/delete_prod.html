@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+
+    <div class="container">
+        <h1> Eliminar Producto: {{ prod.nombre }}</h1>
+        <p>Procedeer con la eliminacion del producto?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit>">Si, Eliminar></button>
+
+            <a href="{{ 'productos/' }}">Cancelar</a>
+        </form>
+    </div>
+
+{% endblock  %}

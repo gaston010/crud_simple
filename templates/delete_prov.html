@@ -1,0 +1,22 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+    <div class="container">
+
+        <h3>Eliminar Proveedore: {{ provedor.nombre }}</h3>
+
+        <p>¿Quiere proceder con la eliminación de este proveedor?</p>
+    
+        <form method="post">
+    
+            {% csrf_token %}
+
+            <button type="submit">Sí, deseo eliminar</button>
+    
+            <a href="{{ '/' }}">Cancelar</a>
+    
+        </form>
+    </div>
+
+{% endblock %}
