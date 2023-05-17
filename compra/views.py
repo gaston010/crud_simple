@@ -98,7 +98,6 @@ def update_proveedor(request, prov_id):
 def delete_product(request, prod_id):
 
     try:
-
         producto = get_object_or_404(Producto, id=prod_id)
 
         if request.method == 'POST':
@@ -121,7 +120,7 @@ def delete_product(request, prod_id):
 def delete_proveedor(request, prov_id):
         
     try:
-        proveedor = get_object_or_404(Proveedor, id=prov_id)
+        proveedor =Proveedor.objects.get(id=prov_id)
 
         if request.method == 'POST':
 

@@ -10,7 +10,7 @@
     
         <form method="post">
     
-            {% csrf_token %}
+            <input type="hidden" name="csrfmiddlewaretoke" value="{{% csrf_token %}}">
 
             <button type="submit">Sí, deseo eliminar</button>
     
