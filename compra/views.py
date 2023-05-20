@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import JsonResponse
 
 from compra.forms import ProductoForm, ProveedorForm
 from .models import Producto, Proveedor
@@ -27,10 +27,8 @@ def create_product(request):
         else:
             return redirect('/productos/')
 
-    context = {
-        'form': form
-    }
-    return render(request, 'create_prod.html', context)
+
+    return render(request, 'create_prod.html', {'form': form})
     
 
 def create_proveedor(request): 
@@ -48,11 +46,8 @@ def create_proveedor(request):
             
         else:
             return redirect('/provedores/')
-    
-    context = {
-        'form': form
-    }
-    return render(request, 'create_prov.html', context)
+
+    return render(request, 'create_prov.html', {'form': form})
 
 
 def update_product(request, prod_id):
@@ -60,9 +55,6 @@ def update_product(request, prod_id):
 
         producto = Producto.objects.get(id=prod_id)
 
-        context = {
-            'producto': producto
-        }
 
         if request.method == 'POST':
             producto.nombre = request.POST['nombre']
@@ -71,7 +63,7 @@ def update_product(request, prod_id):
             producto.proveedor = request.POST['proveedor']
             producto.save() # forzar un guardado en la DB siempre estar seguro de esto
         
-        return render(request, 'update_prod.html', context)
+        return render(request, 'update_prod.html', {'producto': producto})
     except Exception:
         return redirect('error.html')
 
@@ -80,16 +72,14 @@ def update_proveedor(request, prov_id):
 
         provedor = Proveedor.objects.get(id=prov_id)
 
-        context ={
-            'provedor': provedor
-        }
+
         if request.method == 'POST':
             provedor.nombre = request.POST['nombre']
             provedor.apellido = request.POST['apellido']
             provedor.dni = request.POST['dni']
             provedor.save()
 
-        return render(request, 'update_prov.html', context)
+        return render(request, 'update_prov.html', {'provedor': provedor})
     except Exception:
         return redirect('error.html')
     
@@ -106,11 +96,7 @@ def delete_product(request, prod_id):
 
             return redirect('/delete/')
         
-        context={
-            'producto': producto
-        }
-
-        return render(request, 'delete_prod.html', context)
+        return render(request, 'delete_prod.html', {'producto': producto})
     
     except Exception:
 
@@ -128,11 +114,7 @@ def delete_proveedor(request, prov_id):
 
             return redirect('/delete/')
         
-        context = {
-            'proveedor': proveedor
-        }
-
-        return render(request, 'delete_prov.html', context)
+        return render(request, 'delete_prov.html', {'proveedor': proveedor})
     
     except Exception:
 
@@ -248,9 +230,7 @@ def productos(request):
 def proveedores(request):
     try:
         provedor = Proveedor.objects.all()
-        context = {
-            'provedor': provedor
-        }
-        return render(request, 'proveedores.html', context=context)
+
+        return render(request, 'proveedores.html', {'provedor': provedor})
     except Exception:
         return render(request, 'error.html')
