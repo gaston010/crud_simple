@@ -15,8 +15,7 @@ Mini proyecto integrador sobre un sistema de control de productos y proveedores 
 2. Ve al directorio del proyecto: `cd crud_simple`
 3. Crea y activa un entorno virtual (opcional): `python3 -m venv venv` y `source venv/bin/activate`
 4. Instala las dependencias: `pip install -r requirements.txt`
-5. Configura las variables de entorno: `cp .env.example .env` y edita el archivo `.env` según tus necesidades.
-6. Ejecuta las migraciones: `python manage.py migrate`
-7. Inicia el servidor de desarrollo: `python manage.py runserver`
+5. Ejecuta las migraciones: `python manage.py migrate`
+6. Inicia el servidor de desarrollo: `python manage.py runserver`
 
 
