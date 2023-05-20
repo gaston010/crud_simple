@@ -3,7 +3,7 @@
     <h1 class="text-center">Lista de Productos</h1>
         <table class="table table-dark table-sm"> 
             <thead>
-                <tbody>
+                <tbody class="table-group-divider">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -28,8 +28,17 @@
                 </tr>
                 {% endfor %}
         </table>
-    
-    <a href="/provedores/">Ver lista de Proveedores</a>
-    <a href="/create_prod/">Crear Producto</a>
-    <a href='/'>Home</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary hover:bg-secondary" href="/provedores/">Lista de Proveedores</a>    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary hover:bg-secondary" href="/create_prod/">Caragar Productos</a>    
+                </li>
+                <li>
+                    <a class="nav-link btn btn-primary hover:bg-secondary" href="/">Inicio</a>
+                </li>
+            </ul>
+        </div>
 {% endblock  %}
