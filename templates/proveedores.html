@@ -27,8 +27,18 @@
                     </tr>
                 {% endfor %}
         </table>
-
-    <a href="/productos/">Lista de Productos</a>
-    <a href="/create_prov/">Cargar Proveedor</a>
-    <a href="/">Inicio</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary hover:bg-secondary" href="/productos/">Lista de Productos</a>    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary hover:bg-secondary" href="/create_prov/">Caragar Proveedores</a>    
+                </li>
+                <li>
+                    <a class="nav-link btn btn-primary hover:bg-secondary" href="/">Inicio</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 {% endblock  %}
